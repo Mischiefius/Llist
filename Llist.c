@@ -34,7 +34,9 @@ llistLink* llist_pop(enum Llist_dir dir, Llist *self) {
     return head;
 }
 
-inline Llist_Cursor cursor_new(enum Llist_dir dir, Llist* list){ return list; }
+inline Llist_Cursor cursor_new(enum Llist_dir dir, Llist* list){
+    return llist_peek(dir, list);
+}
 
 inline void move_cursor(enum Llist_dir dir, Llist_Cursor* self){
     *self = (dir==left) ? (*self)->left : (*self)->right;
